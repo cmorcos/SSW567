@@ -1,8 +1,9 @@
+# some code was previously done on my leetcode account for practice, tried to mesh it with the assignment requirements
 def classify_triangle(a, b, c):
     if a <= 0 or b <= 0 or c <= 0:
         return "none"
  
-    # triangle inequality
+    # inequality to validate it's actually a triangle
     if a + b <= c or a + c <= b or b + c <= a:
         return "none"
  
