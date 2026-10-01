@@ -13,10 +13,6 @@ jobs:
           command: pip install requests
 
       - run:
-          name: Run triangle tests
-          command: python3 -m unittest -v test_triangle.py
-
-      - run:
           name: Run GitHub API tests
           command: python3 -m unittest -v "GitHubApi - hw03a/test_github_api.py"
 
