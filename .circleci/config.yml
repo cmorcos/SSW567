@@ -14,7 +14,9 @@ jobs:
 
       - run:
           name: Run GitHub API tests
-          command: python3 -m unittest -v "GitHubApi - hw03a/test_github_api.py"
+          command: |
+            cd "GitHubApi - hw03a"
+            python3 -m unittest -v test_github_api.py
 
 workflows:
   test-workflow:
