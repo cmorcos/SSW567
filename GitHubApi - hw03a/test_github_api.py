@@ -2,7 +2,7 @@ import unittest  # for writing unit tests
 
 from unittest.mock import patch, Mock  # for creating mock objects and replacing functions
 
-from github_api import get_repos, get_commit_count  # import functions to test
+from github_api import get_repos, get_commit_count, get_repo_info  # import functions to test
 
 
 class TestGitHubApi(unittest.TestCase): # test class
@@ -43,6 +43,19 @@ class TestGitHubApi(unittest.TestCase): # test class
         result = get_repos("fakeuser")  # for get_repos function
         self.assertEqual(result, [])    # should be empty list
 
+    @patch("github_api.get_commit_count")
+    @patch("github_api.get_repos")
+    def test_get_repo_info(self, mock_get_repos, mock_get_commit_count):
+        mock_get_repos.return_value = [ # 2 mock repos
+            {"name": "repo1"},
+            {"name": "repo2"}
+        ]
+        mock_get_commit_count.side_effect = [3, 5]  # mock commit count
+        result = get_repo_info("testuser")  # test function
+        self.assertEqual(result, [  # check repo names + commit counts
+            ("repo1", 3),
+            ("repo2", 5)
+        ])
 
 if __name__ == "__main__":
     unittest.main()
