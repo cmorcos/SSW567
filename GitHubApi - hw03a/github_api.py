@@ -1,3 +1,5 @@
+# github link: https://github.com/cmorcos/SSW567/tree/main/GitHubApi%20-%20hw03a
+
 import requests  # send requests to github api, installed using python3 -m pip install requests
 import json # unsure if this is needed when paired with response.json
 
