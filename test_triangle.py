@@ -1,4 +1,5 @@
 from triangle import classify_triangle
+from triangle import classify_triangle, main
 
 def test_equilateral():
     assert classify_triangle(3, 3, 3) == "equilateral"
@@ -49,3 +50,6 @@ def test_triangle_inequality_middle_side_large():
 
 def test_scalene():
     assert classify_triangle(2.5, 3.5, 4.5) == "scalene"
+
+def test_main(capsys):
+    main()
